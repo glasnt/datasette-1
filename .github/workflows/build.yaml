@@ -28,5 +28,5 @@ jobs:
         gcloud config set project glasnt-datasette-gh-1
     - name: deploy
       run: | 
-        csv-to-sqlite -f data.csv  -o data.db
+        csv-to-sqlite -f data.csv -o data.db
         datasette publish cloudrun data.db --service greetings
