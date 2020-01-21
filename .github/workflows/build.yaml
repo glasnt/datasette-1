@@ -21,14 +21,12 @@ jobs:
         version: '275.0.0'
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - name: configure gcloud 
+      run: | 
+        gcloud components install beta # simonw/datasette/pulls/660
+        gcloud config set run/region us-central1
+        gcloud config set project glasnt-datasette-gh-1
     - name: deploy
       run: | 
         csv-to-sqlite -f data.csv  -o data.db
-        gcloud components install beta # simonw/datasette/pulls/660
-        gcloud config list
-        gcloud config set run/region us-central1
-        gcloud config set project glasnt-datasette-gh-1
-
-        gcloud beta run services list --platform=managed --format json
-    
         datasette publish cloudrun data.db --service greetings
