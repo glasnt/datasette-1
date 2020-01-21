@@ -29,4 +29,4 @@ jobs:
     - name: deploy
       run: | 
         csv-to-sqlite -f data.csv -o data.db
-        datasette publish cloudrun data.db --service greetings
+        datasette publish cloudrun data.db --service greetings2
