@@ -26,4 +26,5 @@ jobs:
         csv-to-sqlite -f data.csv  -o data.db
         gcloud components install beta # simonw/datasette/pulls/660
         gcloud config set run/region us-central1
+        gcloud config set project glasnt-datasette-gh-1
         datasette publish cloudrun data.db
