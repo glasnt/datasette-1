@@ -27,4 +27,7 @@ jobs:
         gcloud components install beta # simonw/datasette/pulls/660
         gcloud config set run/region us-central1
         gcloud config set project glasnt-datasette-gh-1
+
+        gcloud beta run services list --platform=managed --format json
+    
         datasette publish cloudrun data.db
