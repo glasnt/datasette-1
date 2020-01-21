@@ -25,6 +25,6 @@ jobs:
       run: | 
         csv-to-sqlite -f data.csv  -o data.db
         gcloud info
-        gcloud config set project glasnt-datasette-1
+        gcloud config set project glasnt-datasette-gh-1
         gcloud config set region us-central1
         datasette publish cloudrun data.db
