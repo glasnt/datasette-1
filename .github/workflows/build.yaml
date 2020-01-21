@@ -25,6 +25,7 @@ jobs:
       run: | 
         csv-to-sqlite -f data.csv  -o data.db
         gcloud components install beta # simonw/datasette/pulls/660
+        gcloud config list
         gcloud config set run/region us-central1
         gcloud config set project glasnt-datasette-gh-1
 
