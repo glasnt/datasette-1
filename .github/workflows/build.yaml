@@ -31,4 +31,4 @@ jobs:
 
         gcloud beta run services list --platform=managed --format json
     
-        datasette publish cloudrun data.db
+        datasette publish cloudrun data.db --service greetings
